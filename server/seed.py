@@ -41,8 +41,8 @@ with app.app_context():
         while name in [a.name for a in animals]:
             name=fake.first_name()
         a = Animal(name=name, species=rc(species))
-        a.zookeeper = rc(zookeepers)
-        a.enclosure = rc(enclosures)
+        a.zookeeper = rc(zookeepers).name
+        a.enclosure = rc(enclosures).environment
         animals.append(a)
 
     db.session.add_all(animals)
